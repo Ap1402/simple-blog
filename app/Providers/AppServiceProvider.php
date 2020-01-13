@@ -3,6 +3,12 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
+use Laravel\Passport\Passport;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
+
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -11,9 +17,13 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
+    
     public function register()
     {
         //
+        Schema::defaultStringLength(191);
+        
+
     }
 
     /**
@@ -24,5 +34,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+
+        Passport::routes();
+
     }
 }
